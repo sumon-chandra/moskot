@@ -7,10 +7,9 @@ const roboto = Roboto({
 	weight: "400",
 	subsets: ["latin"],
 });
-import { Inter } from "next/font/google";
-import "./globals.scss";
+import "../app/styles/index.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -24,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Navbar />
 				{children}
 			</body>
-			<body className={inter.className}>{children}</body>
 		</html>
 	);
 }

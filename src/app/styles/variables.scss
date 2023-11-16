@@ -1,5 +1,6 @@
 
 $primary: #4C54F8;
+$fullWidth: 1240px;
 
 @mixin breakpoint($point) {
     @if($point == md) {

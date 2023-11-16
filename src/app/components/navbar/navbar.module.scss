@@ -1,5 +1,123 @@
 @import "../../styles/variables.scss";
 
+$navColor: #283163;
 .navbar {
-  background-color: #FFF9F9;
+	background-color: #fff9f9;
+	width: 100%;
+	height: 40px;
+	padding: 2em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&__container {
+		max-width: $fullWidth;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2em;
+		width: 100%;
+		&__menu {
+			cursor: pointer;
+			width: 40px;
+			height: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: 0.5s ease;
+		}
+		&__content {
+			position: fixed;
+			top: 0;
+			right: 100%;
+			bottom: 0;
+			width: 50%;
+			height: 100vh;
+			backdrop-filter: blur(5px);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 1em;
+			transform: translate(0);
+			transition: 0.5s ease transform;
+			&.isMenuOpen {
+				background-color: rgba(255, 255, 255, 0.503);
+				box-shadow: 2px 2px 20px rgb(216, 216, 216);
+				transform: translate(100%);
+				align-items: start;
+				justify-content: start;
+				padding: 2em;
+			}
+			@include breakpoint(md) {
+				transform: none;
+				flex-direction: row;
+				background: transparent;
+				justify-content: space-between;
+				width: 100%;
+				height: 100%;
+				position: static;
+			}
+			&__crossIcon {
+				cursor: pointer;
+				position: absolute;
+				top: 1em;
+				right: 1em;
+			}
+			&__nav {
+				ul {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					gap: 1em;
+					@include breakpoint(md) {
+						flex-direction: row;
+					}
+					li {
+						a {
+							color: #283163;
+						}
+					}
+				}
+				&__bell {
+					cursor: pointer;
+					width: 40px;
+					height: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: relative;
+					border: 1px solid $navColor;
+					border-radius: 50%;
+					span {
+						position: absolute;
+						width: 20px;
+						height: 20px;
+						top: 0;
+						right: 0;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						padding: 0.4em 0.8em;
+						font-weight: 700;
+						color: white;
+						border-radius: 50%;
+						font-size: 12px;
+						background-color: #679afa;
+					}
+				}
+			}
+		}
+		&__profile {
+			border: 1px solid $navColor;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
 }
