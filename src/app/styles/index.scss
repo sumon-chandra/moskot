@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}

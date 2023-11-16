@@ -1,0 +1,10 @@
+
+$primary: #4C54F8;
+
+@mixin breakpoint($point) {
+    @if($point == md) {
+        @media (min-width: 48rem) {
+            @content;
+        }
+    }
+}
