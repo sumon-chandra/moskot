@@ -1,0 +1,32 @@
+@import "../styles/variables.scss";
+
+.home {
+	max-width: $fullWidth;
+	margin: 0 auto;
+	&__banner {
+		margin-top: 80px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 24px;
+		@include breakpoint(md) {
+			flex-direction: row;
+		}
+		&__description {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			justify-content: start;
+			h4 {
+				font-size: $textTitle;
+				color: $title;
+				font-weight: $titleWeight;
+			}
+			p {
+				font-size: 24px;
+				color: rgba($title, $alpha: 0.6);
+				font-weight: 600;
+			}
+		}
+	}
+}

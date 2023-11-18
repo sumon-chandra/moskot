@@ -1,11 +1,13 @@
-
-$primary: #4C54F8;
+$primary: #4c54f8;
 $fullWidth: 1240px;
+$textTitle: 2em;
+$title: #202020;
+$titleWeight: 700;
 
 @mixin breakpoint($point) {
-    @if($point == md) {
-        @media (min-width: 48rem) {
-            @content;
-        }
-    }
+	@if ($point == md) {
+		@media (min-width: 48rem) {
+			@content;
+		}
+	}
 }

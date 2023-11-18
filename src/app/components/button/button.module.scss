@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+
+.bannerButton {
+	border: 2px solid $primary;
+	padding: 24px 32px;
+	font-size: 20px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	gap: 1em;
+	width: 100%;
+}
+.bannerButtonPrimary {
+	background-color: $primary;
+	color: white;
+}
+.bannerButtonOutlined {
+	background: transparent;
+	color: $primary;
+}
