@@ -34,4 +34,45 @@
 			}
 		}
 	}
+	// ****************** Teams section
+	&__teamSection {
+		margin: 56px 0;
+		@include breakpoint(md) {
+			margin-top: 120px;
+		}
+		&__teams {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			gap: 12px;
+			@include breakpoint(md) {
+				flex-direction: row;
+				gap: 40px;
+			}
+			&__team {
+				width: 315px;
+				padding: 32px;
+				border-radius: 12px;
+				border: 1px solid $primary;
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+				&__title {
+					font-size: $text-title;
+					color: $title;
+					font-weight: $title-weight;
+				}
+				&__category {
+					font-size: 24px;
+					font-weight: 500;
+					color: $title;
+				}
+				&__description {
+					font-size: 16px;
+					margin-top: 16px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
 }

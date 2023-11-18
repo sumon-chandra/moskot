@@ -8,9 +8,11 @@ const Teams = () => {
 
 	return (
 		<section className={classes.home__teamSection}>
-			{data?.data.map(team => (
-				<Team key={team._id} team={team} />
-			))}
+			<div className={classes.home__teamSection__teams}>
+				{data?.data.map(team => (
+					<Team key={team._id} team={team} />
+				))}
+			</div>
 		</section>
 	);
 };
