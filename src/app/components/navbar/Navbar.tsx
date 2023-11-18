@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaBars, FaUser, FaBell } from "react-icons/fa";
@@ -13,22 +13,44 @@ import Image from "next/image";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [size, setSize] = useState({
+		width: 0,
+		height: 0,
+	});
 
 	const handleMenuToggle = () => {
 		setIsMenuOpen(previousState => !previousState);
 	};
 
+	useEffect(() => {
+		const handleResize = () => {
+			setSize({
+				width: window.innerWidth,
+				height: window.innerHeight,
+			});
+		};
+
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	useEffect(() => {
+		if (size.width > 768) {
+			setIsMenuOpen(false);
+		}
+	}, [size.width]);
+
 	return (
 		<header className={styles.navbar}>
 			<nav className={styles.navbar__container}>
 				<div className={styles.navbar__container__menu}>
-					{isMenuOpen && (
+					{!isMenuOpen ? (
 						<BiMenu
 							onClick={handleMenuToggle}
 							size={24}
 							className={styles.navbar__menu__icon}
 						/>
-					)}
+					) : null}
 				</div>
 				<div
 					className={`${styles.navbar__container__content} ${

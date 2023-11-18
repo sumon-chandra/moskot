@@ -2,14 +2,16 @@
 
 $navColor: #283163;
 .navbar {
-	background-color: #fff9f9;
 	width: 100%;
 	height: 40px;
 	padding: 2em;
 	display: flex;
+	background: transparent;
 	align-items: center;
 	justify-content: space-between;
-
+	@include breakpoint(md) {
+		background-color: #fff9f9;
+	}
 	&__container {
 		max-width: $fullWidth;
 		margin: 0 auto;
@@ -26,6 +28,9 @@ $navColor: #283163;
 			align-items: center;
 			justify-content: center;
 			transition: 0.5s ease;
+			@include breakpoint(md) {
+				display: none;
+			}
 		}
 		&__content {
 			position: fixed;
@@ -34,11 +39,10 @@ $navColor: #283163;
 			bottom: 0;
 			width: 50%;
 			height: 100vh;
-			backdrop-filter: blur(5px);
+			backdrop-filter: blur(10px);
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			justify-content: center;
+			align-items: start;
 			gap: 1em;
 			transform: translate(0);
 			transition: 0.5s ease transform;
@@ -46,7 +50,9 @@ $navColor: #283163;
 				background-color: rgba(255, 255, 255, 0.503);
 				box-shadow: 2px 2px 20px rgb(216, 216, 216);
 				transform: translate(100%);
+				flex-direction: column;
 				align-items: start;
+				justify-content: center;
 				justify-content: start;
 				padding: 2em;
 			}
