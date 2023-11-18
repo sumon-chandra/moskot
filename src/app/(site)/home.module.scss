@@ -1,8 +1,13 @@
 @import "../styles/variables.scss";
 
 .home {
-	max-width: $fullWidth;
+	max-width: $full-width;
 	margin: 0 auto;
+	padding: 0 2rem;
+	@include breakpoint(md) {
+		padding: 0;
+	}
+	// ******************  Banner section
 	&__banner {
 		margin-top: 80px;
 		display: flex;
@@ -18,9 +23,9 @@
 			gap: 24px;
 			justify-content: start;
 			h4 {
-				font-size: $textTitle;
+				font-size: $text-title;
 				color: $title;
-				font-weight: $titleWeight;
+				font-weight: $title-weight;
 			}
 			p {
 				font-size: 24px;

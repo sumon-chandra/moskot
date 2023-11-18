@@ -1,8 +1,8 @@
 $primary: #4c54f8;
-$fullWidth: 1240px;
-$textTitle: 2em;
+$full-width: 1240px;
+$text-title: 32px;
 $title: #202020;
-$titleWeight: 700;
+$title-weight: 700;
 
 @mixin breakpoint($point) {
 	@if ($point == md) {

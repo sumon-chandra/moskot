@@ -1,15 +1,16 @@
 @import "../../styles/variables.scss";
 
 .bannerButton {
+	cursor: pointer;
 	border: 2px solid $primary;
-	padding: 24px 32px;
+	padding: 24px;
 	font-size: 20px;
 	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-weight: 700;
-	gap: 1em;
+	gap: 0.5em;
 	width: 100%;
 }
 .bannerButtonPrimary {

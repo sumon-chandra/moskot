@@ -6,9 +6,10 @@ interface ButtonProps {
 	variant: "primary" | "outlined";
 	value: string;
 	icon?: IconType;
+	onClick?: () => void;
 }
 
-const BannerButton: FC<ButtonProps> = ({ value, variant, icon: Icon }) => {
+const BannerButton: FC<ButtonProps> = ({ value, variant, icon: Icon, onClick }) => {
 	return (
 		<button
 			className={`${classes.bannerButton} ${
@@ -16,6 +17,7 @@ const BannerButton: FC<ButtonProps> = ({ value, variant, icon: Icon }) => {
 					? classes.bannerButtonPrimary
 					: classes.bannerButtonOutlined
 			}`}
+			onClick={onClick}
 		>
 			{Icon && (
 				<span className={classes.bannerButton__icon}>
