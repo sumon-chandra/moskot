@@ -21,3 +21,24 @@
 	background: transparent;
 	color: $primary;
 }
+
+// ************ Modal Button ************
+.modalBtn {
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: $title-weight;
+	padding: 16px;
+	width: 100%;
+	border: 2px solid;
+	border-radius: 34px;
+	&__primary {
+		background-color: #0a6af6;
+		color: white;
+		border-color: #0a6af6;
+	}
+	&__outlined {
+		background-color: white;
+		border-color: black;
+		color: black;
+	}
+}

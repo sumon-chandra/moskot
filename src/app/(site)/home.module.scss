@@ -44,6 +44,7 @@
 			display: flex;
 			flex-direction: column;
 			flex-wrap: wrap;
+			align-items: center;
 			gap: 12px;
 			@include breakpoint(md) {
 				flex-direction: row;
@@ -73,6 +74,52 @@
 					line-height: 24px;
 				}
 			}
+		}
+	}
+}
+.teamCreateModal {
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+	padding: 20px;
+	@include breakpoint(md) {
+		padding: 40px 20px;
+	}
+	h4 {
+		font-size: 24px;
+		font-weight: $title-weight;
+	}
+	&__input {
+		display: flex;
+		flex-direction: column;
+		label {
+			font-size: 20px;
+			color: #aeb7b4;
+			font-weight: $title-weight;
+			margin-bottom: 12px;
+		}
+		input {
+			min-width: 286px;
+			padding: 24px;
+			border-radius: 12px;
+			border: 2px solid #0a6af6;
+			outline: none;
+			@include breakpoint(md) {
+				min-width: 100%;
+			}
+			:focus {
+				outline: none !important;
+				border: none !important;
+			}
+		}
+	}
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		@include breakpoint(md) {
+			flex-direction: row;
+			gap: 56px;
 		}
 	}
 }
