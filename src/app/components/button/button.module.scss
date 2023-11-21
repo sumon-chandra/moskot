@@ -12,6 +12,9 @@
 	font-weight: 700;
 	gap: 0.5em;
 	width: 100%;
+	@include breakpoint(md) {
+		width: auto;
+	}
 }
 .bannerButtonPrimary {
 	background-color: $primary;

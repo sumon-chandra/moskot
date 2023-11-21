@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaBars, FaUser, FaBell } from "react-icons/fa";
@@ -45,30 +45,20 @@ const Navbar = () => {
 			<nav className={styles.navbar__container}>
 				<div className={styles.navbar__container__menu}>
 					{!isMenuOpen ? (
-						<BiMenu
-							onClick={handleMenuToggle}
-							size={24}
-							className={styles.navbar__menu__icon}
-						/>
+						<BiMenu onClick={handleMenuToggle} size={24} className={styles.navbar__menu__icon} />
 					) : null}
 				</div>
-				<div
-					className={`${styles.navbar__container__content} ${
-						isMenuOpen ? styles.isMenuOpen : ""
-					}`}
-				>
+				<div className={`${styles.navbar__container__content} ${isMenuOpen ? styles.isMenuOpen : ""}`}>
 					{isMenuOpen && (
 						<IoCloseSharp
 							onClick={handleMenuToggle}
 							size={24}
-							className={
-								styles.navbar__container__content__crossIcon
-							}
+							className={styles.navbar__container__content__crossIcon}
 						/>
 					)}
 					<div className={styles.navbar__container__content__logo}>
 						<Image
-							src="./logo.svg"
+							src="/logo.svg"
 							width={115}
 							height={41}
 							alt="Logo"
@@ -87,11 +77,7 @@ const Navbar = () => {
 								<Link href="#">Community</Link>
 							</li>
 							<li>
-								<motion.div
-									className={
-										styles.navbar__container__content__nav__bell
-									}
-								>
+								<motion.div className={styles.navbar__container__content__nav__bell}>
 									<span>3</span>
 									<LuBell />
 								</motion.div>

@@ -7,11 +7,7 @@ import { useState } from "react";
 import TeamCreateModal from "./TeamCreateModal";
 
 const Banner = () => {
-	const [openModal, setOpenModal] = useState(true);
-	const handleCreateTeam = () => {
-		console.log("hello world");
-		setOpenModal(true);
-	};
+	const [openModal, setOpenModal] = useState(false);
 	return (
 		<>
 			<section className={classes.home__banner}>
@@ -23,7 +19,7 @@ const Banner = () => {
 					<BannerButton
 						variant="outlined"
 						value="Create a team"
-						onClick={handleCreateTeam}
+						onClick={() => setOpenModal(true)}
 						icon={FaPlus}
 					/>
 				</div>

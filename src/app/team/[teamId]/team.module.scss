@@ -1,0 +1,70 @@
+@import "../../styles/variables.scss";
+
+.layout {
+	max-width: $full-width;
+	margin: 0 auto;
+	padding: 0 2em;
+	@include breakpoint(md) {
+		padding: 0;
+	}
+}
+.banner {
+	margin-top: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 56px;
+	@include breakpoint(md) {
+		margin-top: 80px;
+		flex-direction: row;
+		align-items: start;
+	}
+	&__status {
+		&__title {
+			font-size: $text-title;
+			color: $title;
+			font-weight: $title-weight;
+		}
+		&__buttons {
+			margin-top: 24px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 24px;
+			@include breakpoint(md) {
+				flex-direction: row;
+			}
+			button {
+				cursor: pointer;
+				border: 2px solid $primary;
+				color: $primary;
+				padding: 24px;
+				font-size: 20px;
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
+				gap: 0.5em;
+				width: 100%;
+				opacity: 0.3;
+				transition: 0.5s;
+				&:hover {
+					opacity: 1;
+				}
+				@include breakpoint(md) {
+					width: auto;
+				}
+			}
+		}
+	}
+	&__actionButtons {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 24px;
+		@include breakpoint(md) {
+			flex-direction: row;
+		}
+	}
+}

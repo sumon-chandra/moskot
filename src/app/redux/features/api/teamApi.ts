@@ -1,4 +1,4 @@
-import { Teams } from "@/types"
+import { Team, Teams } from "@/types"
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const teamApi = createApi({
@@ -7,8 +7,11 @@ export const teamApi = createApi({
     endpoints: (builder) => ({
         getTeams: builder.query<Teams, void>({
             query: () => "team"
+        }),
+        getTeam: builder.query<Team, string>({
+            query: (teamId: string) => `team/${teamId}`
         })
     })
 })
 
-export const { useGetTeamsQuery } = teamApi
+export const { useGetTeamsQuery, useGetTeamQuery } = teamApi
