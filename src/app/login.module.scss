@@ -1,0 +1,66 @@
+@import "./styles/variables.scss";
+
+.main {
+	max-width: $full-width;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__loginBox {
+		margin-top: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		h4 {
+			margin-top: 24px;
+			font-size: 24px;
+			color: #606060;
+			span {
+				font-weight: 900;
+				line-height: 24px;
+			}
+		}
+		&__form {
+			margin-top: 56px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 24px;
+			&__inputs {
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+				input {
+					border-radius: 4px;
+					border: 1px solid #5242f0;
+					font-size: 24px;
+					padding: 16px;
+					width: auto;
+					&:focus {
+						outline: none;
+					}
+					@include breakpoint(md) {
+						width: 430px;
+					}
+				}
+			}
+			button {
+				border: none;
+				border-radius: 4px;
+				background: #5242f0;
+				padding: 16px;
+				width: 100%;
+				color: white;
+				font-size: 24px;
+			}
+		}
+		&__toggle {
+			margin-top: 24px;
+			span {
+				font-weight: $title-weight;
+				color: #2020204d;
+				cursor: pointer;
+			}
+		}
+	}
+}
