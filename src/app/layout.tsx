@@ -4,6 +4,7 @@ import "../app/styles/index.scss";
 import Navbar from "./components/navbar/Navbar";
 import "../app/styles/index.scss";
 import Providers from "./Providers";
+import { Toaster } from "sonner";
 
 const roboto = Roboto({
 	weight: "400",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="en">
 			<body className={roboto.className}>
 				<Providers>
+					<Toaster richColors position="top-center" />
 					<Navbar />
 					{children}
 				</Providers>

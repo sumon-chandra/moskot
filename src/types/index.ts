@@ -1,13 +1,11 @@
 export interface User {
+    _id: string;
     email: string;
     name: string;
     password: string;
-    role: "admin" | "user";
+    role: string;
     image?: string;
-    _id: string;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
+    _v: number
 }
 
 export interface TeamData {

@@ -3,8 +3,10 @@
 import Image from "next/image";
 import classes from "./login.module.scss";
 import { useCallback, useState, SyntheticEvent } from "react";
+import { useRegisterUserMutation } from "./redux/features/api/authApi";
+import { toast } from "sonner";
 
-interface User {
+export interface UserData {
 	name?: { value: string };
 	email: { value: string };
 	password: { value: string };
@@ -12,6 +14,8 @@ interface User {
 
 const LoginPage = () => {
 	const [variant, setVariant] = useState<"login" | "register">("login");
+	const [isLoading, setIsLoading] = useState(false);
+	const [registerUser] = useRegisterUserMutation();
 
 	const toggleVariant = useCallback(() => {
 		if (variant === "login") {
@@ -21,25 +25,29 @@ const LoginPage = () => {
 		}
 	}, [variant]);
 
-	function randomId() {
-		return Math.random().toString(36).slice(2) + Math.random().toString(36).toUpperCase().slice(2);
-	}
-
 	const handleRegister = (e: SyntheticEvent) => {
-		const target = e.target as typeof e.target & User;
+		setIsLoading(true);
+		const target = e.target as typeof e.target & UserData;
 		e.preventDefault();
 		const user = {
-			_id: randomId(),
-			name: target.name?.value,
+			name: target.name?.value!,
 			email: target.email?.value,
 			password: target.password?.value,
-			role: "user",
 		};
-		console.log(user);
+		registerUser(user)
+			.then((res: any) => {
+				setIsLoading(false);
+				if (res.data?.success === true) {
+					toast.success(res?.data?.message);
+				} else {
+					toast.error(res?.data?.message);
+				}
+			})
+			.finally(() => setIsLoading(false));
 	};
 
 	const handleLogin = (e: SyntheticEvent) => {
-		const target = e.target as typeof e.target & User;
+		const target = e.target as typeof e.target & UserData;
 		e.preventDefault();
 		const user = {
 			email: target.email?.value,
@@ -71,15 +79,17 @@ const LoginPage = () => {
 							type="email"
 							name="email"
 							placeholder="Email address"
+							disabled={isLoading}
 						/>
 						<input
 							type="password"
 							name="password"
 							placeholder="Password"
+							disabled={isLoading}
 						/>
 					</div>
 					<p>Forgot password?</p>
-					<button type="submit">
+					<button type="submit" disabled={isLoading}>
 						{variant === "login" ? "Login" : "Register"}
 					</button>
 				</form>
