@@ -8,6 +8,7 @@
 		padding: 0;
 	}
 }
+
 .banner {
 	margin-top: 12px;
 	display: flex;
@@ -65,6 +66,76 @@
 		gap: 24px;
 		@include breakpoint(md) {
 			flex-direction: row;
+		}
+	}
+}
+
+.team {
+	margin-top: 56px;
+}
+
+.welcome {
+	width: 100%;
+	border-radius: 12px;
+	@include breakpoint(md) {
+		border: 1px solid #4c54f8;
+		background-color: #f4f1f2;
+		padding: 56px 0 200px 0;
+	}
+	&__head {
+		text-align: start;
+		h4 {
+			font-size: $text-title;
+			color: $title;
+			font-weight: $title-weight;
+			padding-bottom: 24px;
+		}
+		p {
+			font-size: 24px;
+			color: rgba($title, $alpha: 0.6);
+			font-weight: 600;
+		}
+		@include breakpoint(md) {
+			text-align: center;
+		}
+	}
+	&__container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 12px;
+		margin-top: 56px;
+		@include breakpoint(md) {
+			flex-direction: row;
+			gap: 56px;
+		}
+		&__box {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			gap: 30px;
+			background-color: #f4f1f2;
+			border-radius: 12px;
+			border: 1px solid #4c54f8;
+			padding: 56px;
+			width: 100%;
+			filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.25));
+			@include breakpoint(md) {
+				background: transparent;
+				border: none;
+				filter: none;
+				width: auto;
+			}
+			button {
+				cursor: pointer;
+				padding: 16px;
+				font-size: 16px;
+				border-radius: 12px;
+				border: 1px solid #679afa80;
+				background-color: white;
+				width: 100%;
+			}
 		}
 	}
 }
