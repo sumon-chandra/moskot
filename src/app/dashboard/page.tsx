@@ -13,16 +13,20 @@ export default function Dashboard() {
 	const data = useSelector((state: RootState) => state?.auth?.token);
 	const user = jwtDecode<JwtPayload>(data);
 
+	let content = null;
+
 	if (user?.role === "admin") {
-		return (
-			<>
+		content = (
+			<div>
 				<Banner />
 				<Teams />
-			</>
+			</div>
 		);
 	}
 
 	if (user?.role === "user") {
-		return <InvitedList />;
+		content = <InvitedList />;
 	}
+
+	return <div className={classes.dashboard}>{content}</div>;
 }

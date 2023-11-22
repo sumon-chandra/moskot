@@ -12,7 +12,7 @@
 	font-weight: 700;
 	gap: 0.5em;
 	width: 100%;
-	@include breakpoint(md) {
+	@include breakpoint(sm) {
 		width: auto;
 	}
 }

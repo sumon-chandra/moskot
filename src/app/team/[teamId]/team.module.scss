@@ -15,7 +15,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	gap: 56px;
-	@include breakpoint(md) {
+	@include breakpoint(sm) {
 		margin-top: 80px;
 		flex-direction: row;
 		align-items: start;
@@ -32,7 +32,7 @@
 			flex-direction: column;
 			justify-content: space-between;
 			gap: 24px;
-			@include breakpoint(md) {
+			@include breakpoint(sm) {
 				flex-direction: row;
 			}
 			button {
@@ -53,7 +53,7 @@
 				&:hover {
 					opacity: 1;
 				}
-				@include breakpoint(md) {
+				@include breakpoint(sm) {
 					width: auto;
 				}
 			}
@@ -64,7 +64,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		gap: 24px;
-		@include breakpoint(md) {
+		@include breakpoint(sm) {
 			flex-direction: row;
 		}
 	}
@@ -77,7 +77,7 @@
 .welcome {
 	width: 100%;
 	border-radius: 12px;
-	@include breakpoint(md) {
+	@include breakpoint(sm) {
 		border: 1px solid #4c54f8;
 		background-color: #f4f1f2;
 		padding: 56px 0 200px 0;
@@ -95,7 +95,7 @@
 			color: rgba($title, $alpha: 0.6);
 			font-weight: 600;
 		}
-		@include breakpoint(md) {
+		@include breakpoint(sm) {
 			text-align: center;
 		}
 	}
@@ -106,7 +106,7 @@
 		flex-direction: column;
 		gap: 12px;
 		margin-top: 56px;
-		@include breakpoint(md) {
+		@include breakpoint(sm) {
 			flex-direction: row;
 			gap: 56px;
 		}
@@ -121,7 +121,7 @@
 			padding: 56px;
 			width: 100%;
 			filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.25));
-			@include breakpoint(md) {
+			@include breakpoint(sm) {
 				background: transparent;
 				border: none;
 				filter: none;

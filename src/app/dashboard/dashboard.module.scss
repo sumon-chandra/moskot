@@ -14,7 +14,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		gap: 24px;
-		@include breakpoint(md) {
+		@include breakpoint(sm) {
 			margin-top: 80px;
 			flex-direction: row;
 		}
@@ -38,7 +38,7 @@
 	// ****************** Teams section
 	&__teamSection {
 		margin: 56px 0;
-		@include breakpoint(md) {
+		@include breakpoint(sm) {
 			margin-top: 120px;
 		}
 		&__teams {
@@ -47,7 +47,7 @@
 			flex-wrap: wrap;
 			align-items: center;
 			gap: 12px;
-			@include breakpoint(md) {
+			@include breakpoint(sm) {
 				flex-direction: row;
 				gap: 40px;
 			}
@@ -83,7 +83,7 @@
 	flex-direction: column;
 	gap: 48px;
 	padding: 20px 0;
-	@include breakpoint(md) {
+	@include breakpoint(sm) {
 		padding: 40px;
 	}
 	h4 {
@@ -107,7 +107,7 @@
 			border: 2px solid #0a6af6;
 			outline: none;
 			font-size: 20px;
-			@include breakpoint(md) {
+			@include breakpoint(sm) {
 				min-width: 100%;
 			}
 			:focus {
@@ -121,7 +121,7 @@
 		flex-direction: column;
 		position: relative;
 		gap: 32px;
-		@include breakpoint(md) {
+		@include breakpoint(sm) {
 			flex-direction: row;
 			gap: 56px;
 		}
@@ -135,11 +135,6 @@
 			text-decoration: underline;
 		}
 	}
-}
-
-.invitedList {
-	margin: 0 auto;
-	max-width: $full-width;
 }
 
 .emptyInvitedList {

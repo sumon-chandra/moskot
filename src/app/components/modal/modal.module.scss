@@ -22,7 +22,7 @@
 		filter: drop-shadow(0 0 0.75rem rgba(10, 106, 246, 0.1));
 		border-radius: 20px;
 		border: 1px solid #a5ecd7;
-		@include breakpoint(md) {
+		@include breakpoint(sm) {
 			width: 571px;
 		}
 		&__content {

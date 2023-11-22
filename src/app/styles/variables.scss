@@ -6,6 +6,11 @@ $title-weight: 700;
 
 @mixin breakpoint($point) {
 	@if ($point == md) {
+		@media (min-width: 1040px) {
+			@content;
+		}
+	}
+	@if ($point == sm) {
 		@media (min-width: 48rem) {
 			@content;
 		}

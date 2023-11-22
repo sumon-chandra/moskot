@@ -9,7 +9,7 @@ $navColor: #283163;
 	background: transparent;
 	align-items: center;
 	justify-content: space-between;
-	@include breakpoint(md) {
+	@include breakpoint(sm) {
 		background-color: #fff9f9;
 		height: 100px;
 	}
@@ -29,7 +29,7 @@ $navColor: #283163;
 			align-items: center;
 			justify-content: center;
 			transition: 0.5s ease;
-			@include breakpoint(md) {
+			@include breakpoint(sm) {
 				display: none;
 			}
 		}
@@ -58,7 +58,7 @@ $navColor: #283163;
 				justify-content: start;
 				padding: 2em;
 			}
-			@include breakpoint(md) {
+			@include breakpoint(sm) {
 				transform: none;
 				flex-direction: row;
 				background: transparent;
@@ -84,7 +84,7 @@ $navColor: #283163;
 					align-items: center;
 					justify-content: center;
 					gap: 1em;
-					@include breakpoint(md) {
+					@include breakpoint(sm) {
 						flex-direction: row;
 					}
 					li {
