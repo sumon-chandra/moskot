@@ -7,11 +7,18 @@ import Teams from "./components/Teams";
 import classes from "./dashboard.module.scss";
 import { RootState } from "../redux/store";
 import { jwtDecode } from "jwt-decode";
-import { JwtPayload } from "jsonwebtoken";
+
+interface DecodedDataType {
+	id: string;
+	role: string;
+	email: string;
+	iat: number;
+	exp: number;
+}
 
 export default function Dashboard() {
 	const data = useSelector((state: RootState) => state?.auth?.token);
-	const user = jwtDecode<JwtPayload>(data);
+	const user = jwtDecode<DecodedDataType>(data);
 
 	let content = null;
 
