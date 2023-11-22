@@ -1,12 +1,14 @@
-import classes from "./home.module.scss";
 import Banner from "./components/Banner";
+import InvitedList from "./components/Invitation/InvitedList";
 import Teams from "./components/Teams";
+import classes from "./dashboard.module.scss";
 
-export default function Home() {
+export default function Dashboard() {
 	return (
-		<main className={classes.home}>
+		<main className={classes.dashboard}>
 			<Banner />
 			<Teams />
+			{/* <InvitedList /> */}
 		</main>
 	);
 }

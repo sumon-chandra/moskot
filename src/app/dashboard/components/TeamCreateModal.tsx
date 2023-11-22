@@ -1,7 +1,7 @@
 "use client";
 
 import ModalButton from "@/app/components/button/ModalButton";
-import classes from "../home.module.scss";
+import classes from "../dashboard.module.scss";
 import Modal from "@/app/components/modal/Modal";
 import { FC, useState, useRef } from "react";
 
@@ -142,9 +142,17 @@ const TeamCreateModal: FC<TeamCreateModalProps> = ({ onClose, open }) => {
 					{formInput()}
 				</div>
 				<div className={classes.teamCreateModal__buttons}>
-					<ModalButton value="Cancel" variant="outlined" type="button" onClick={handleCancel} />
+					<ModalButton
+						value="Cancel"
+						variant="outlined"
+						type="button"
+						onClick={handleCancel}
+					/>
 					{variant === "image" && (
-						<span onClick={handleCreateTeam} className={classes.teamCreateModal__buttons__skip}>
+						<span
+							onClick={handleCreateTeam}
+							className={classes.teamCreateModal__buttons__skip}
+						>
 							Skip for now
 						</span>
 					)}
@@ -152,7 +160,11 @@ const TeamCreateModal: FC<TeamCreateModalProps> = ({ onClose, open }) => {
 						value="Continue"
 						variant="primary"
 						type="button"
-						onClick={variant === "image" ? handleCreateTeam : handleContinue}
+						onClick={
+							variant === "image"
+								? handleCreateTeam
+								: handleContinue
+						}
 					/>
 				</div>
 			</div>

@@ -32,3 +32,10 @@ export interface Teams {
     message: string;
     data: TeamData[]
 }
+
+export interface InvitedItemProps {
+    _id: string;
+    email: string;
+    team_id: string;
+    status: string
+}

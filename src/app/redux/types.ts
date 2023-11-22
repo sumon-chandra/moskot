@@ -1,10 +1,9 @@
 import { User } from "@/types";
 
 export interface GenericResponse {
-    status: string;
     message: string;
     success: boolean;
-    data: User;
+    data: User | string;
     statusCode: number;
 }
 export interface RegisterUserProps {

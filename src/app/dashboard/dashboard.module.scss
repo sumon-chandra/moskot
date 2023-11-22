@@ -1,6 +1,6 @@
 @import "../styles/variables.scss";
 
-.home {
+.dashboard {
 	max-width: $full-width;
 	margin: 0 auto;
 	padding: 0 2rem;
@@ -133,6 +133,25 @@
 			right: 0;
 			color: #0a6af6;
 			text-decoration: underline;
+		}
+	}
+}
+
+.emptyInvitedList {
+	margin-top: 0 auto;
+	max-width: $full-width;
+	height: 80vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		h3 {
+			color: #aeb7b4;
+			font-size: 40px;
+			font-weight: $title-weight;
 		}
 	}
 }

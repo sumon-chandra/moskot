@@ -14,7 +14,7 @@ export const authApi = createApi({
                 };
             },
         }),
-        loginUser: builder.mutation<{ access_token: string; status: string }, RegisterUserProps>({
+        loginUser: builder.mutation<GenericResponse, RegisterUserProps>({
             query(data) {
                 return {
                     url: "login",
