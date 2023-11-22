@@ -2,6 +2,7 @@
 import classes from "../dashboard.module.scss";
 import { TeamData } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 interface TeamProps {
@@ -10,7 +11,7 @@ interface TeamProps {
 
 const Team: FC<TeamProps> = ({ team }) => {
 	return (
-		<div className={classes.dashboard__teamSection__teams__team}>
+		<Link href={`team/${team._id}`} className={classes.dashboard__teamSection__teams__team}>
 			<Image
 				src="/teamDemo.png"
 				width={86}
@@ -24,7 +25,7 @@ const Team: FC<TeamProps> = ({ team }) => {
 				Grow Your Team with Ease: Effortlessly Add Members for Increased Performance and
 				Achievement
 			</p>
-		</div>
+		</Link>
 	);
 };
 
