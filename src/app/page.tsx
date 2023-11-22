@@ -3,8 +3,11 @@
 import Image from "next/image";
 import classes from "./login.module.scss";
 import { useCallback, useState, SyntheticEvent } from "react";
-import { useRegisterUserMutation } from "./redux/features/api/authApi";
+import { useLoginUserMutation, useRegisterUserMutation } from "./redux/features/api/authApi";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { loggedInUser } from "./redux/features/authSlice";
 
 export interface UserData {
 	name?: { value: string };
@@ -16,6 +19,9 @@ const LoginPage = () => {
 	const [variant, setVariant] = useState<"login" | "register">("login");
 	const [isLoading, setIsLoading] = useState(false);
 	const [registerUser] = useRegisterUserMutation();
+	const [loginUser] = useLoginUserMutation();
+	const router = useRouter();
+	const dispatch = useDispatch();
 
 	const toggleVariant = useCallback(() => {
 		if (variant === "login") {
@@ -39,6 +45,7 @@ const LoginPage = () => {
 				setIsLoading(false);
 				if (res.data?.success === true) {
 					toast.success(res?.data?.message);
+					toggleVariant();
 				} else {
 					toast.error(res?.data?.message);
 				}
@@ -47,13 +54,26 @@ const LoginPage = () => {
 	};
 
 	const handleLogin = (e: SyntheticEvent) => {
+		setIsLoading(true);
 		const target = e.target as typeof e.target & UserData;
 		e.preventDefault();
 		const user = {
 			email: target.email?.value,
 			password: target.password?.value,
 		};
-		console.log(user);
+		loginUser(user)
+			.then((res: any) => {
+				setIsLoading(false);
+				if (res.data?.success === true) {
+					toast.success(res?.data?.message);
+					console.log(res.data.data);
+					dispatch(loggedInUser({ token: res.data.data }));
+					router.push("/dashboard");
+				} else if (res?.error) {
+					toast.error(res?.error?.data?.message);
+				}
+			})
+			.finally(() => setIsLoading(false));
 	};
 
 	return (

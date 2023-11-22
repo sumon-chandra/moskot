@@ -137,9 +137,13 @@
 	}
 }
 
-.emptyInvitedList {
-	margin-top: 0 auto;
+.invitedList {
+	margin: 0 auto;
 	max-width: $full-width;
+}
+
+.emptyInvitedList {
+	max-width: 100%;
 	height: 80vh;
 	display: flex;
 	align-items: center;
