@@ -13,11 +13,13 @@ export interface UserData {
 	name?: { value: string };
 	email: { value: string };
 	password: { value: string };
+	role: string;
 }
 
 const LoginPage = () => {
 	const [variant, setVariant] = useState<"login" | "register">("login");
 	const [isLoading, setIsLoading] = useState(false);
+	const [userRole, setUserRole] = useState("user");
 	const [registerUser] = useRegisterUserMutation();
 	const [loginUser] = useLoginUserMutation();
 	const router = useRouter();
@@ -39,6 +41,7 @@ const LoginPage = () => {
 			name: target.name?.value!,
 			email: target.email?.value,
 			password: target.password?.value,
+			role: userRole,
 		};
 		registerUser(user)
 			.then((res: any) => {
@@ -83,30 +86,19 @@ const LoginPage = () => {
 				<h4>
 					Welcome to <span>Back</span>
 				</h4>
-				<form
-					onSubmit={variant === "login" ? handleLogin : handleRegister}
-					className={classes.main__loginBox__form}
-				>
+				<form onSubmit={variant === "login" ? handleLogin : handleRegister} className={classes.main__loginBox__form}>
 					<div className={classes.main__loginBox__form__inputs}>
 						{variant === "register" && (
-							<input
-								type="text"
-								name="name"
-								placeholder="Enter your name"
-							/>
+							<>
+								<input type="text" name="name" placeholder="Enter your name" />
+								<select name="role" disabled={isLoading} onChange={e => setUserRole(e.target.value)}>
+									<option value="user">User</option>
+									<option value="admin">Admin</option>
+								</select>
+							</>
 						)}
-						<input
-							type="email"
-							name="email"
-							placeholder="Email address"
-							disabled={isLoading}
-						/>
-						<input
-							type="password"
-							name="password"
-							placeholder="Password"
-							disabled={isLoading}
-						/>
+						<input type="email" name="email" placeholder="Email address" disabled={isLoading} />
+						<input type="password" name="password" placeholder="Password" disabled={isLoading} />
 					</div>
 					<p>Forgot password?</p>
 					<button type="submit" disabled={isLoading}>
@@ -116,13 +108,11 @@ const LoginPage = () => {
 				<div className={classes.main__loginBox__toggle}>
 					{variant === "login" ? (
 						<div>
-							Don't have an account?{" "}
-							<span onClick={toggleVariant}>Sign up</span>
+							Don't have an account? <span onClick={toggleVariant}>Sign up</span>
 						</div>
 					) : (
 						<div>
-							Already have an account?{" "}
-							<span onClick={toggleVariant}>Login</span>
+							Already have an account? <span onClick={toggleVariant}>Login</span>
 						</div>
 					)}
 				</div>
