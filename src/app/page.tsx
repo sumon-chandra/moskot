@@ -67,7 +67,7 @@ const LoginPage = () => {
 				if (res.data?.success === true) {
 					toast.success(res?.data?.message);
 					console.log(res.data.data);
-					dispatch(loggedInUser({ token: res.data.data }));
+					dispatch(loggedInUser({ token: res?.data?.data }));
 					router.push("/dashboard");
 				} else if (res?.error) {
 					toast.error(res?.error?.data?.message);

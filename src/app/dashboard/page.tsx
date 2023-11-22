@@ -6,28 +6,18 @@ import InvitedList from "./components/Invitation/InvitedList";
 import Teams from "./components/Teams";
 import classes from "./dashboard.module.scss";
 import { RootState } from "../redux/store";
-import { jwtDecode } from "jwt-decode";
-
-interface DecodedDataType {
-	id: string;
-	role: string;
-	email: string;
-	iat: number;
-	exp: number;
-}
 
 export default function Dashboard() {
-	const data = useSelector((state: RootState) => state?.auth?.token);
-	const user = jwtDecode<DecodedDataType>(data);
+	const user = useSelector((state: RootState) => state?.auth?.user);
 
 	let content = null;
 
 	if (user?.role === "admin") {
 		content = (
-			<div>
+			<>
 				<Banner />
 				<Teams />
-			</div>
+			</>
 		);
 	}
 
